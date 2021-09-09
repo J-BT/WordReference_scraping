@@ -4,8 +4,9 @@ from bs4 import BeautifulSoup
 
 def getTranlation(word_to_search, language_origin, language_destination):
     """
-    Search translations for a word translation with web app 'WordReference'.
-    For now you can search English -> French and French -> English
+    Search a word's translations with web app 'WordReference'.
+    For now you can search :
+        English -> French and French -> English
     It returns a dictionnary of dictionnaries as follows:
     
     english_french_dict["word_n1"] = {"eng" : "hello", "fr" : "bonjour"}
