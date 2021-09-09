@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 
-def getTranlation(word_to_search, language_origin, language_destination):
+def getTranslation(word_to_search, language_origin, language_destination):
     """
     Search a word's translations with web app 'WordReference'.
     For now you can search :
@@ -66,7 +66,7 @@ def getTranlation(word_to_search, language_origin, language_destination):
     return english_french_dict
 
 if __name__ == "__main__":
-    english__french_translations = getTranlation("truth","English","French")
+    english__french_translations = getTranslation("truth","English","French")
 
     for element in english__french_translations.items():
         print(element)
