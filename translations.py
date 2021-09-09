@@ -30,7 +30,7 @@ def getTranlation(word_to_search, language_origin, language_destination):
         langTo = "fr"
 
     if language_origin == language_destination:
-        return [{"error" : "Please choose 2 different languages..."}]
+        return {"error" : "Please choose 2 different languages..."}
 
     page = requests.get(f"https://www.wordreference.com/{langFrom}{langTo}/{word_to_search}")
     soup = BeautifulSoup(page.content, 'html.parser')
