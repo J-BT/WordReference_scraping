@@ -65,8 +65,26 @@ def getTranslation(word_to_search, language_origin, language_destination):
                         
     return english_french_dict
 
-if __name__ == "__main__":
-    english__french_translations = getTranslation("truth","English","French")
+def getPhonetic(word, language, variant="UK") :
+    """
+    Search a word's phonetic in 'WordReference'.
+    You can use 'English' language and two variants are available : 'US' and 'UK'
+    It will return you a string containing the phonetic transcription of the word pronunciation
+    """
 
-    for element in english__french_translations.items():
-        print(element)
+    langFrom = ""
+    langTo = ""
+
+    if language == "English":
+        langFrom = "en"
+        langTo = "fr"
+
+    page = requests.get(f"https://www.wordreference.com/{langFrom}{langTo}/{word}")
+    soup = BeautifulSoup(page.content, 'html.parser')
+
+    pronuncation = soup.find("div", {"id":"pronunciation_widget"}).text
+
+    if variant == "US" and "US" in pronuncation.split('/')[2]:
+        return pronuncation.split('/')[3]
+    else :
+        return pronuncation.split('/')[1]
