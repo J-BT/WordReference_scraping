@@ -1,4 +1,4 @@
-### WordReferenceEngFr_API
+### WordReferenceEngFr_API (en cours)
 
 Search a word's translations with web app 'WordReference'.
 
